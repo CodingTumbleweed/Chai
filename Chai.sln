@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.API", "Chai.API\Chai.API.csproj", "{8F1C4704-255B-40CA-8E08-3BC20F86AB65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.API.Tests", "Chai.API.Tests\Chai.API.Tests.csproj", "{544C4DFC-50B9-43A1-BA25-8C5E729741DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F1C4704-255B-40CA-8E08-3BC20F86AB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1C4704-255B-40CA-8E08-3BC20F86AB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1C4704-255B-40CA-8E08-3BC20F86AB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1C4704-255B-40CA-8E08-3BC20F86AB65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544C4DFC-50B9-43A1-BA25-8C5E729741DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544C4DFC-50B9-43A1-BA25-8C5E729741DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544C4DFC-50B9-43A1-BA25-8C5E729741DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544C4DFC-50B9-43A1-BA25-8C5E729741DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {856F428D-513B-4EFC-A4FC-186893B60F97}
+	EndGlobalSection
+EndGlobal
