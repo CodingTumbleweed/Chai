@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using CHAI.DataService.Repository;
 
 namespace Chai.API.Controllers
 {
@@ -15,13 +16,11 @@ namespace Chai.API.Controllers
         /// </summary>
         /// <returns>List of all cities</returns>
         [HttpGet]
-        public IHttpActionResult GetAllCities()
+        public IHttpActionResult GetCitiesByState(int id)
         {
-            IList<City> cities = new List<City>();
-            cities.Add(new City() { Id =1, Name = "San Francisco", ISOCode = "SF", StateId = 1 });
-            cities.Add(new City() { Id = 2, Name = "San Diego", ISOCode = "SD", StateId = 1 });
-            cities.Add(new City() { Id = 3, Name = "Mexico", ISOCode = "MX", StateId = 1 });
-            return Ok<IList<City>>(cities);
+            CityRepository cityRepository = new CityRepository();
+            var results = cityRepository.FindById(id);
+            return Ok(results);
         }
     }
 }

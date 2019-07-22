@@ -1,5 +1,6 @@
 ﻿using Chai.API.ExceptionHandlers;
 using Chai.API.Loggers;
+using Chai.API.Utility;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 
@@ -23,7 +24,9 @@ namespace Chai.API
             );
 
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
-            
+            config.MessageHandlers.Add(new CustomResponseHandler());
+
+
         }
     }
 }

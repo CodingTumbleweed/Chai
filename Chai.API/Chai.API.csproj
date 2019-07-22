@@ -116,6 +116,7 @@
     <Compile Include="Loggers\UnhandledExceptionLogger.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CustomResponseHandler.cs" />
     <Compile Include="Utility\ErrorContentResult.cs" />
     <Compile Include="Utility\Helper.cs" />
   </ItemGroup>
@@ -130,6 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CHAI.DataService\CHAI.DataService.csproj">
+      <Project>{ad4f00d4-031a-4541-9d25-bb1442681bed}</Project>
+      <Name>CHAI.DataService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
