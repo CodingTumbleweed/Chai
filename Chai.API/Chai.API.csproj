@@ -111,11 +111,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="ExceptionHandlers\UnhandledExceptionHandler.cs" />
+    <Compile Include="Filters\ModelValidationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Loggers\UnhandledExceptionLogger.cs" />
-    <Compile Include="Models\City.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\GlobalResources.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -31,7 +31,7 @@ namespace Chai.API.Utility
         }
         private HttpResponseMessage GenerateResponse(HttpRequestMessage request, HttpResponseMessage response)
         {
-            string errorMessage = GlobalResources.Success;
+            string errorMessage = null;
             HttpStatusCode statusCode = HttpStatusCode.OK;
             if (!IsResponseValid(response))
             {
