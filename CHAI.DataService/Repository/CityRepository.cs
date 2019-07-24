@@ -8,6 +8,11 @@ namespace CHAI.DataService.Repository
 {
     public class CityRepository : IReadOnlyRepository<CityModel>
     {
+        public CityModel Find(CityModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<CityModel> FindById(int id)
         {
             return DBContext.GetCities(id);

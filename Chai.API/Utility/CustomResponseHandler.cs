@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chai.API.Resource;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -30,11 +31,11 @@ namespace Chai.API.Utility
         }
         private HttpResponseMessage GenerateResponse(HttpRequestMessage request, HttpResponseMessage response)
         {
-            string errorMessage = null;
+            string errorMessage = GlobalResources.Success;
             HttpStatusCode statusCode = HttpStatusCode.OK;
             if (!IsResponseValid(response))
             {
-                return request.CreateResponse(HttpStatusCode.BadRequest, "Invalid response..");
+                return request.CreateResponse(HttpStatusCode.BadRequest, GlobalResources.InvalidResponse);
             }
             object responseContent;
             if (response.TryGetContentValue(out responseContent))
@@ -45,6 +46,11 @@ namespace Chai.API.Utility
                     errorMessage = httpError.Message;
                     statusCode = HttpStatusCode.InternalServerError;
                     responseContent = null;
+                }
+
+                if(IsResponseContentEmpty(responseContent))
+                {
+                    errorMessage = GlobalResources.NotFound;
                 }
             }
             ResponseMetadata responseMetadata = new ResponseMetadata();
@@ -58,6 +64,13 @@ namespace Chai.API.Utility
         private bool IsResponseValid(HttpResponseMessage response)
         {
             if ((response != null) && (response.StatusCode == HttpStatusCode.OK))
+                return true;
+            return false;
+        }
+
+        private bool IsResponseContentEmpty(object content)
+        {
+            if (content == null)
                 return true;
             return false;
         }

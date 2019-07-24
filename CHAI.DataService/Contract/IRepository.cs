@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 
 namespace CHAI.DataService.Contract
 {
-    internal interface IRepository<T> : IReadOnlyRepository<T> where T : class, IEntity
+    public interface IRepository<T> : IReadOnlyRepository<T> where T : class, IEntity
     {
-        void Add(T model);
+        int Add(T model);
 
         void Remove(T model);
 

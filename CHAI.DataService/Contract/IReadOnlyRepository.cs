@@ -4,10 +4,11 @@ using System.Data;
 
 namespace CHAI.DataService.Contract
 {
-    internal interface IReadOnlyRepository<T> where T : class, IEntity
+    public interface IReadOnlyRepository<T> where T : class, IEntity
     {
         //DBContext context { get; }
         IEnumerable<T> FindById(int id);
+        T Find(T model);
         IEnumerable<T> GetAll();
     }
 }
