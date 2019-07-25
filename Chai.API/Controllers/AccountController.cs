@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using CHAI.DataService.Repository;
-using CHAI.DataService.Contract;
+using Chai.DataService.Repository;
+using Chai.DataService.Contract;
 using Chai.API.Filters;
 using Chai.Models.POCO;
 

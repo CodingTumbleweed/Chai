@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.API", "Chai.API\Chai.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.API.Tests", "Chai.API.Tests\Chai.API.Tests.csproj", "{544C4DFC-50B9-43A1-BA25-8C5E729741DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHAI.DataService", "CHAI.DataService\CHAI.DataService.csproj", "{AD4F00D4-031A-4541-9D25-BB1442681BED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.DataService", "CHAI.DataService\Chai.DataService.csproj", "{AD4F00D4-031A-4541-9D25-BB1442681BED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chai.Models", "Chai.Models\Chai.Models.csproj", "{F001889B-4371-4FE5-9B99-6988EA050EFD}"
 EndProject

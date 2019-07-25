@@ -1,8 +1,8 @@
-﻿using CHAI.DataService.DataProvider;
+﻿using Chai.DataService.DataProvider;
 using System.Collections.Generic;
 using System.Data;
 
-namespace CHAI.DataService.Contract
+namespace Chai.DataService.Contract
 {
     public interface IReadOnlyRepository<T> where T : class
     {

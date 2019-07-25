@@ -1,10 +1,10 @@
 ﻿using Chai.Models.POCO;
-using CHAI.DataService.Contract;
-using CHAI.DataService.DataProvider;
+using Chai.DataService.Contract;
+using Chai.DataService.DataProvider;
 using System;
 using System.Collections.Generic;
 
-namespace CHAI.DataService.Repository
+namespace Chai.DataService.Repository
 {
     public class CityRepository : IReadOnlyRepository<CityModel>
     {

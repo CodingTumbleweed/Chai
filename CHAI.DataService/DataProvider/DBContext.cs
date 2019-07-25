@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CHAI.DataService.DataProvider
+namespace Chai.DataService.DataProvider
 {
     internal class DBContext
     {

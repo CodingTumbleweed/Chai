@@ -7,8 +7,8 @@
     <ProjectGuid>{AD4F00D4-031A-4541-9D25-BB1442681BED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CHAI.DataService</RootNamespace>
-    <AssemblyName>CHAI.DataService</AssemblyName>
+    <RootNamespace>Chai.DataService</RootNamespace>
+    <AssemblyName>Chai.DataService</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

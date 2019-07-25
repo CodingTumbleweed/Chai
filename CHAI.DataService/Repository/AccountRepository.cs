@@ -1,13 +1,13 @@
 ﻿using Chai.Models.POCO;
-using CHAI.DataService.Contract;
-using CHAI.DataService.DataProvider;
+using Chai.DataService.Contract;
+using Chai.DataService.DataProvider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CHAI.DataService.Repository
+namespace Chai.DataService.Repository
 {
     public class AccountRepository : IRepository<AccountModel>
     {
