@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace CHAI.DataService.Contract
 {
-    public interface IRepository<T> : IReadOnlyRepository<T> where T : class, IEntity
+    public interface IRepository<T> : IReadOnlyRepository<T> where T : class
     {
         int Add(T model);
 

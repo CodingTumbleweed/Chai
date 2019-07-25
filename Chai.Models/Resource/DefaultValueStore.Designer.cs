@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CHAI.DataService.Resources {
+namespace Chai.Models.Resource {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CHAI.DataService.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CHAI.DataService.Resources.DefaultValueStore", typeof(DefaultValueStore).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Chai.Models.Resource.DefaultValueStore", typeof(DefaultValueStore).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

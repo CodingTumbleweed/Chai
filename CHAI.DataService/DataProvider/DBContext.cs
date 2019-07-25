@@ -1,4 +1,4 @@
-﻿using CHAI.DataService.Model;
+﻿using Chai.Models.POCO;
 using Dapper;
 using System;
 using System.Collections.Generic;

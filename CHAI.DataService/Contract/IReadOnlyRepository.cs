@@ -4,7 +4,7 @@ using System.Data;
 
 namespace CHAI.DataService.Contract
 {
-    public interface IReadOnlyRepository<T> where T : class, IEntity
+    public interface IReadOnlyRepository<T> where T : class
     {
         //DBContext context { get; }
         IEnumerable<T> FindById(int id);

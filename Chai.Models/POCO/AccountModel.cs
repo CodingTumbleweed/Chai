@@ -1,12 +1,8 @@
-﻿using CHAI.DataService.Contract;
-using CHAI.DataService.Resources;
+﻿using Chai.Models.Contract;
+using Chai.Models.Resource;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CHAI.DataService.Model
+namespace Chai.Models.POCO
 {
     public class AccountModel : IEntity
     {

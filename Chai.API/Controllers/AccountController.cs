@@ -6,11 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using CHAI.DataService.Repository;
 using CHAI.DataService.Contract;
-using CHAI.DataService.Model;
 using Chai.API.Filters;
+using Chai.Models.POCO;
 
 namespace Chai.API.Controllers
 {
+    [ModelValidationFilter]
     public class AccountController : ApiController
     {
         private readonly IRepository<AccountModel> _accountRepository;
@@ -26,7 +27,6 @@ namespace Chai.API.Controllers
         /// <param name="model">User model</param>
         /// <returns></returns>
         [HttpPost]
-        [ModelValidationFilter]
         public IHttpActionResult AddUser(AccountModel model)
         {
             if (!ModelState.IsValid)
@@ -47,7 +47,6 @@ namespace Chai.API.Controllers
         /// <param name="model">User model</param>
         /// <returns></returns>
         [HttpGet]
-        [ModelValidationFilter]
         public IHttpActionResult LoginUser([FromUri] AccountModel model)
         {
             if (!ModelState.IsValid)

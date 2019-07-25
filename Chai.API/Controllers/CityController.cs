@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using CHAI.DataService.Repository;
 using CHAI.DataService.Contract;
-using CHAI.DataService.Model;
+using Chai.Models.POCO;
 
 namespace Chai.API.Controllers
 {
@@ -28,6 +28,8 @@ namespace Chai.API.Controllers
         public IHttpActionResult GetCitiesByState(int id)
         {
             var results = _cityRepository.FindById(id);
+            if (results == null)
+                return NotFound();
             return Ok(results);
         }
     }

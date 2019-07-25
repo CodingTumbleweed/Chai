@@ -1,11 +1,11 @@
-﻿using CHAI.DataService.Contract;
+﻿using Chai.Models.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CHAI.DataService.Model
+namespace Chai.Models.POCO
 {
     public class CityModel : IEntity
     {

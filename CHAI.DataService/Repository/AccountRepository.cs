@@ -1,6 +1,6 @@
-﻿using CHAI.DataService.Contract;
+﻿using Chai.Models.POCO;
+using CHAI.DataService.Contract;
 using CHAI.DataService.DataProvider;
-using CHAI.DataService.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

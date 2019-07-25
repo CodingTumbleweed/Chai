@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,6 +143,10 @@
     <ProjectReference Include="..\CHAI.DataService\CHAI.DataService.csproj">
       <Project>{ad4f00d4-031a-4541-9d25-bb1442681bed}</Project>
       <Name>CHAI.DataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chai.Models\Chai.Models.csproj">
+      <Project>{f001889b-4371-4fe5-9b99-6988ea050efd}</Project>
+      <Name>Chai.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

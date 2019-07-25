@@ -47,11 +47,10 @@ namespace Chai.API.Utility
                     statusCode = HttpStatusCode.InternalServerError;
                     responseContent = null;
                 }
-
-                if(IsResponseContentEmpty(responseContent))
-                {
-                    errorMessage = GlobalResources.NotFound;
-                }
+            }
+            else
+            {
+                errorMessage = GlobalResources.NotFound;
             }
             ResponseMetadata responseMetadata = new ResponseMetadata();
             responseMetadata.StatusCode = statusCode;
