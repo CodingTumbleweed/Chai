@@ -14,11 +14,11 @@ namespace Chai.API.Controllers
     [ModelValidationFilter]
     public class AccountController : ApiController
     {
-        private readonly IRepository<AccountModel> _accountRepository;
+        private readonly IRepository<AccountModel> _repository;
 
-        public AccountController()
+        public AccountController(IRepository<AccountModel> repository)
         {
-            _accountRepository = new AccountRepository();
+            _repository = repository;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Chai.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            int Id = _accountRepository.Add(model);
+            int Id = _repository.Add(model);
             if(Id == 0)
                 return Ok();
 
@@ -54,7 +54,7 @@ namespace Chai.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = _accountRepository.Find(model);
+            var result = _repository.Find(model);
             return Ok(result);
         }
     }

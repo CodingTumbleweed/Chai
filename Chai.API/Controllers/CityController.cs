@@ -12,11 +12,11 @@ namespace Chai.API.Controllers
 {
     public class CityController : ApiController
     {
-        private readonly IReadOnlyRepository<CityModel> _cityRepository;
+        private readonly IRepository<CityModel> _repository;
 
-        public CityController()
+        public CityController(IRepository<CityModel> repository)
         {
-            _cityRepository = new CityRepository();
+            _repository = repository;
         }
         
         /// <summary>
@@ -27,7 +27,7 @@ namespace Chai.API.Controllers
         [HttpGet]
         public IHttpActionResult GetCitiesByState(int id)
         {
-            var results = _cityRepository.FindById(id);
+            var results = _repository.FindById(id);
             if (results == null)
                 return NotFound();
             return Ok(results);

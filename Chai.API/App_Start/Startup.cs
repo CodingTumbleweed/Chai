@@ -19,6 +19,7 @@ namespace Chai.API.App_Start
             var json = config.Formatters.JsonFormatter.SerializerSettings;
             //json.ContractResolver = new CamelCasePropertyNamesContractResolver();
             json.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            
             //HttpConfiguration httpConfiguration = new HttpConfiguration();
             WebApiConfig.Register(config);
             appBuilder.UseWebApi(config);

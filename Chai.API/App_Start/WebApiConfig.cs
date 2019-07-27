@@ -3,6 +3,7 @@ using Chai.API.Loggers;
 using Chai.API.Utility;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
+using Unity.WebApi;
 
 namespace Chai.API
 {
@@ -23,8 +24,13 @@ namespace Chai.API
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //Configure Unity IOC
+            var container = UnityConfig.RegisterComponents();
+            config.DependencyResolver = new UnityDependencyResolver(container);
+
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
             config.MessageHandlers.Add(new CustomResponseHandler());
+
 
 
         }

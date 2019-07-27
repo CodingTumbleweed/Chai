@@ -6,11 +6,16 @@ using System.Collections.Generic;
 
 namespace Chai.DataService.Repository
 {
-    public class CityRepository : IReadOnlyRepository<CityModel>
+    public class CityRepository : IRepository<CityModel>
     {
+        public int Add(CityModel model)
+        {
+            throw new NotSupportedException();
+        }
+
         public CityModel Find(CityModel model)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public IEnumerable<CityModel> FindById(int id)
@@ -20,7 +25,17 @@ namespace Chai.DataService.Repository
 
         public IEnumerable<CityModel> GetAll()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
+        }
+
+        public void Remove(CityModel model)
+        {
+            throw new NotSupportedException();
+        }
+
+        public void Update(CityModel model)
+        {
+            throw new NotSupportedException();
         }
     }
 }

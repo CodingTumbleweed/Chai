@@ -23,22 +23,22 @@ namespace Chai.DataService.Repository
 
         public IEnumerable<AccountModel> FindById(int id)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public IEnumerable<AccountModel> GetAll()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void Remove(AccountModel model)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void Update(AccountModel model)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
     }
 }
