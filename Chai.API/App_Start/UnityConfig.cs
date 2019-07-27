@@ -16,7 +16,7 @@ namespace Chai.API
 			var container = new UnityContainer();
 
 
-            // Register controller
+            // Register new controllers here
             container.RegisterType<AccountController>();
             container.RegisterType<CityController>();
 
@@ -26,8 +26,6 @@ namespace Chai.API
             container.RegisterType<IRepository<CityModel>, CityRepository>(new ContainerControlledLifetimeManager());
 
             return container;
-
-            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
 }

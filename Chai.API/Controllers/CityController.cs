@@ -7,9 +7,11 @@ using System.Web.Http;
 using Chai.DataService.Repository;
 using Chai.DataService.Contract;
 using Chai.Models.POCO;
+using Chai.API.Filters;
 
 namespace Chai.API.Controllers
 {
+    [ModelValidationFilter]
     public class CityController : ApiController
     {
         private readonly IRepository<CityModel> _repository;

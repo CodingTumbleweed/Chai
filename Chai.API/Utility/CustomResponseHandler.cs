@@ -33,29 +33,31 @@ namespace Chai.API.Utility
         {
             string errorMessage = null;
             HttpStatusCode statusCode = HttpStatusCode.OK;
-            if (!IsResponseValid(response))
-            {
-                return request.CreateResponse(HttpStatusCode.BadRequest, GlobalResources.InvalidResponse);
-            }
-            object responseContent;
-            if (response.TryGetContentValue(out responseContent))
+            object responseContent = null;
+            ResponseMetadata responseMetadata;
+
+            //if (!IsResponseValid(response))
+            //{
+            //    statusCode = HttpStatusCode.BadRequest;
+            //    responseMetadata = CreateMetaResponse(statusCode, errorMessage);
+            //    return request.CreateResponse(statusCode, responseMetadata);
+            //}
+            if (response.TryGetContentValue(out responseContent) && !response.IsSuccessStatusCode)
             {
                 HttpError httpError = responseContent as HttpError;
                 if (httpError != null)
                 {
                     errorMessage = httpError.Message;
-                    statusCode = HttpStatusCode.InternalServerError;
-                    responseContent = null;
+                    statusCode = response.StatusCode;
                 }
             }
             else
             {
-                errorMessage = GlobalResources.NotFound;
+                errorMessage = response.ReasonPhrase;
+                statusCode = response.StatusCode;
             }
-            ResponseMetadata responseMetadata = new ResponseMetadata();
-            responseMetadata.StatusCode = statusCode;
-            responseMetadata.Content = responseContent;
-            responseMetadata.ErrorMessage = errorMessage;
+
+            responseMetadata = CreateMetaResponse(statusCode, errorMessage, responseContent);
 
             var result = request.CreateResponse(response.StatusCode, responseMetadata);
             return result;
@@ -77,6 +79,15 @@ namespace Chai.API.Utility
         private bool IsSwagger(HttpRequestMessage request)
         {
             return request.RequestUri.PathAndQuery.StartsWith("/swagger");
+        }
+
+        private ResponseMetadata CreateMetaResponse(HttpStatusCode statusCode, string errorMessage=null, object responseContent=null)
+        {
+            ResponseMetadata responseMetadata = new ResponseMetadata();
+            responseMetadata.StatusCode = statusCode;
+            responseMetadata.Content = responseContent;
+            responseMetadata.ErrorMessage = errorMessage;
+            return responseMetadata;
         }
     }
 
