@@ -23,9 +23,10 @@ namespace Chai.API.Controllers
         
         /// <summary>
         /// Gets List of all cities
+        /// under given state
         /// </summary>
         /// <param name="id">State Id</param>
-        /// <returns>List of all cities</returns>
+        /// <returns>List of cities</returns>
         [HttpGet]
         public IHttpActionResult GetCitiesByState(int id)
         {

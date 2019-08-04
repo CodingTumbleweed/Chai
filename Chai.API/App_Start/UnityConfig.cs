@@ -24,6 +24,7 @@ namespace Chai.API
             container.RegisterType<IRepository<AccountModel>, AccountRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<CityModel>, CityRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<StateModel>, StateRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRepository<CountryModel>, CountryRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<GenderModel>, GenderRepository>(new ContainerControlledLifetimeManager());
 
             return container;

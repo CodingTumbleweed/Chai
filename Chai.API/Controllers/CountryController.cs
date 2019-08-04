@@ -9,25 +9,23 @@ using System.Web.Http;
 
 namespace Chai.API.Controllers
 {
-    public class StateController : ApiController
+    public class CountryController : ApiController
     {
-        private readonly IRepository<StateModel> _repository;
+        private readonly IRepository<CountryModel> _repository;
 
-        public StateController(IRepository<StateModel> repository)
+        public CountryController(IRepository<CountryModel> repository)
         {
             _repository = repository;
         }
 
         /// <summary>
-        /// Gets List of all states
-        /// under given country
+        /// Gets List of all countries
         /// </summary>
-        /// <param name="id">Country Id</param>
-        /// <returns>List of states</returns>
+        /// <returns>List of all countries</returns>
         [HttpGet]
-        public IHttpActionResult GetStateByCountry(int id)
+        public IHttpActionResult GetAllCountries()
         {
-            var results = _repository.FindById(id);
+            var results = _repository.GetAll();
             if (results == null)
                 return NotFound();
             return Ok(results);

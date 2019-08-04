@@ -45,6 +45,21 @@ namespace Chai.DataService.DataProvider
             return null;
         }
 
+        public static IEnumerable<CountryModel> GetCountries()
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                IEnumerable<CountryModel> result = connection.Query<CountryModel>("usp_GetCountryDetail_General",
+                    commandType: CommandType.StoredProcedure).AsEnumerable();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region User Account
