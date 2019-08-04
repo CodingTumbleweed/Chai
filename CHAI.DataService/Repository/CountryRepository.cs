@@ -31,12 +31,12 @@ namespace Chai.DataService.Repository
             return DBContext.GetCountries();
         }
 
-        public void Remove(CountryModel model)
+        public bool Remove(CountryModel model)
         {
             throw new NotSupportedException();
         }
 
-        public void Update(CountryModel model)
+        public bool Update(CountryModel model)
         {
             throw new NotSupportedException();
         }

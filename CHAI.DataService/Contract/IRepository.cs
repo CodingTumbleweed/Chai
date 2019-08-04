@@ -9,8 +9,8 @@ namespace Chai.DataService.Contract
     {
         int Add(T model);
 
-        void Remove(T model);
+        bool Remove(T model);
 
-        void Update(T model);
+        bool Update(T model);
     }
 }

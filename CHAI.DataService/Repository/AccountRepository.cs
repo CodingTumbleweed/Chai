@@ -31,12 +31,12 @@ namespace Chai.DataService.Repository
             throw new NotSupportedException();
         }
 
-        public void Remove(AccountModel model)
+        public bool Remove(AccountModel model)
         {
             throw new NotSupportedException();
         }
 
-        public void Update(AccountModel model)
+        public bool Update(AccountModel model)
         {
             throw new NotSupportedException();
         }

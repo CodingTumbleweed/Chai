@@ -31,12 +31,12 @@ namespace Chai.DataService.Repository
             return DBContext.GetGender();
         }
 
-        public void Remove(GenderModel model)
+        public bool Remove(GenderModel model)
         {
             throw new NotSupportedException();
         }
 
-        public void Update(GenderModel model)
+        public bool Update(GenderModel model)
         {
             throw new NotSupportedException();
         }

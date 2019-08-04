@@ -28,12 +28,12 @@ namespace Chai.DataService.Repository
             throw new NotSupportedException();
         }
 
-        public void Remove(CityModel model)
+        public bool Remove(CityModel model)
         {
             throw new NotSupportedException();
         }
 
-        public void Update(CityModel model)
+        public bool Update(CityModel model)
         {
             throw new NotSupportedException();
         }
