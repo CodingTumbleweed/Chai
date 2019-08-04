@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\IEntity.cs" />
+    <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="POCO\AccountModel.cs" />
     <Compile Include="POCO\CityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,8 +58,6 @@
       <LastGenOutput>DefaultValueStore.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

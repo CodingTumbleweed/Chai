@@ -25,6 +25,8 @@ namespace Chai.API.App_Start
             appBuilder.UseWebApi(config);
 
             ConfigureSwashbuckle(config);
+
+            AutoMapperConfig.Initialize();
         }
 
         private void ConfigureSwashbuckle(HttpConfiguration config)

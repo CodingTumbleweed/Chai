@@ -8,6 +8,8 @@ using Chai.DataService.Repository;
 using Chai.DataService.Contract;
 using Chai.API.Filters;
 using Chai.Models.POCO;
+using Chai.Models.DTO;
+using AutoMapper;
 
 namespace Chai.API.Controllers
 {
@@ -29,10 +31,6 @@ namespace Chai.API.Controllers
         [HttpPost]
         public IHttpActionResult AddUser(AccountModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
             int Id = _repository.Add(model);
             if(Id == 0)
@@ -49,13 +47,11 @@ namespace Chai.API.Controllers
         [HttpGet]
         public IHttpActionResult LoginUser([FromUri] AccountModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var result = _repository.Find(model);
-            return Ok(result);
+            if (result != null)
+                return Ok(Mapper.Map<AccountModel, AccountDTO>(result));
+            else
+                return NotFound();
         }
     }
 }
