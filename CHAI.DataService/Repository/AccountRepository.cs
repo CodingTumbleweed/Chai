@@ -31,9 +31,9 @@ namespace Chai.DataService.Repository
             throw new NotSupportedException();
         }
 
-        public bool Remove(AccountModel model)
+        public bool Remove(int id)
         {
-            throw new NotSupportedException();
+            return DBContext.DeleteUser(id);
         }
 
         public bool Update(AccountModel model)

@@ -115,6 +115,18 @@ namespace Chai.DataService.DataProvider
             return null;
         }
 
+        public static bool DeleteUser(int userId)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var success = connection.Query<bool>("Usp_Delete_UserAccount_General", new { Id = userId },
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
         #endregion
 
 

@@ -31,7 +31,7 @@ namespace Chai.DataService.Repository
             return DBContext.GetCountries();
         }
 
-        public bool Remove(CountryModel model)
+        public bool Remove(int id)
         {
             throw new NotSupportedException();
         }

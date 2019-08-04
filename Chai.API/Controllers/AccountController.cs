@@ -53,5 +53,18 @@ namespace Chai.API.Controllers
             else
                 return NotFound();
         }
+
+        /// <summary>
+        /// Deletes User Account
+        /// </summary>
+        /// <param name="id">User Id</param>
+        /// <returns>Boolean value indicating
+        /// account removal success</returns>
+        [HttpDelete]
+        public IHttpActionResult DeleteUser(int id)
+        {
+            var result = _repository.Remove(id);
+            return Ok(result);
+        }
     }
 }

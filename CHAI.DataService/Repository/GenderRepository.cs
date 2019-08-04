@@ -31,7 +31,7 @@ namespace Chai.DataService.Repository
             return DBContext.GetGender();
         }
 
-        public bool Remove(GenderModel model)
+        public bool Remove(int id)
         {
             throw new NotSupportedException();
         }

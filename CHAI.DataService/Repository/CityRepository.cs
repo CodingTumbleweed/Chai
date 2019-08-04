@@ -28,7 +28,7 @@ namespace Chai.DataService.Repository
             throw new NotSupportedException();
         }
 
-        public bool Remove(CityModel model)
+        public bool Remove(int id)
         {
             throw new NotSupportedException();
         }
