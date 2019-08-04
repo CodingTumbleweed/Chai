@@ -87,6 +87,26 @@ namespace Chai.DataService.DataProvider
 
         #endregion
 
+
+        #region Gender
+
+        public static IEnumerable<GenderModel> GetGender()
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                IEnumerable<GenderModel> result = connection.Query<GenderModel>("usp_GetGenderDetail_General",
+                    commandType: CommandType.StoredProcedure).AsEnumerable();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+
+            return null;
+        }
+
+        #endregion
+
         #region Global function
 
         internal static IDbConnection OpenConnection()

@@ -20,10 +20,10 @@ namespace Chai.API
             container.RegisterType<AccountController>();
             container.RegisterType<CityController>();
 
-            //ContainerControlledLifetimeManager creates a singleton object 
-            //on first call and then returns the same object on subsequent call
+            //Register new IOC mappings here
             container.RegisterType<IRepository<AccountModel>, AccountRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<CityModel>, CityRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRepository<GenderModel>, GenderRepository>(new ContainerControlledLifetimeManager());
 
             return container;
         }
