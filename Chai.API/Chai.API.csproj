@@ -128,6 +128,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
     <Compile Include="ExceptionHandlers\UnhandledExceptionHandler.cs" />
     <Compile Include="Filters\ModelValidationFilter.cs" />
     <Compile Include="Global.asax.cs">

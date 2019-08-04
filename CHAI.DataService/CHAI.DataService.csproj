@@ -53,6 +53,7 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\CityRepository.cs" />
     <Compile Include="Repository\GenderRepository.cs" />
+    <Compile Include="Repository\StateRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

@@ -13,7 +13,7 @@ namespace Chai.DataService.DataProvider
 {
     internal class DBContext
     {
-        #region City
+        #region City / State Country
 
         public static IEnumerable<CityModel> GetCities(int stateId)
         {
@@ -24,6 +24,21 @@ namespace Chai.DataService.DataProvider
                     commandType: CommandType.StoredProcedure).AsEnumerable();
 
                 if(result != null && result.Count() > 0)
+                    return result;
+            }
+
+            return null;
+        }
+
+        public static IEnumerable<StateModel> GetStates(int countryId)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                IEnumerable<StateModel> result = connection.Query<StateModel>("usp_GetStateDetail_General", new { CountryId = countryId },
+                    commandType: CommandType.StoredProcedure).AsEnumerable();
+
+                if (result != null && result.Count() > 0)
                     return result;
             }
 
