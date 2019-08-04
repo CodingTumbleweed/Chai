@@ -38,7 +38,7 @@ namespace Chai.DataService.Repository
 
         public bool Update(AccountModel model)
         {
-            throw new NotSupportedException();
+            return DBContext.UpdateUser(model);
         }
     }
 }

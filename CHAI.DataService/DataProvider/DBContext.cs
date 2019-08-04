@@ -95,6 +95,33 @@ namespace Chai.DataService.DataProvider
             return 0;
         }
 
+        public static bool UpdateUser(AccountModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@Id", model.Id);
+                p.Add("@FirstName", model.FirstName);
+                p.Add("@MiddleName", model.MiddleName);
+                p.Add("@LastName", model.LastName);
+                p.Add("@MotherMaidenName", model.MotherMaidenName);
+                p.Add("@Phone", model.Phone);
+                p.Add("@Mobile", model.Mobile);
+                p.Add("@GenderId", model.GenderId);
+                p.Add("@DOB", model.DOB);
+                p.Add("@Zip", model.Zip);
+                p.Add("@CountryId", model.CountryId);
+                p.Add("@StateId", model.StateId);
+                p.Add("@CityId", model.CityId);
+
+                var success = connection.Query<bool>("usp_Update_UserAccount_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
         public static AccountModel LoginUser(AccountModel model)
         {
             DataSet ds = new DataSet();

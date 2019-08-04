@@ -23,6 +23,7 @@ namespace Chai.API.Controllers
             _repository = repository;
         }
 
+
         /// <summary>
         /// Creates a new user
         /// </summary>
@@ -39,6 +40,7 @@ namespace Chai.API.Controllers
             return Ok(Id);
         }
 
+
         /// <summary>
         /// Authenticates User Login
         /// </summary>
@@ -54,11 +56,26 @@ namespace Chai.API.Controllers
                 return NotFound();
         }
 
+
+        /// <summary>
+        /// Updates User Details
+        /// </summary>
+        /// <param name="model">User model</param>
+        /// <returns>Boolean indicating
+        /// account update success</returns>
+        [HttpPut]
+        public IHttpActionResult UpdateUser(AccountModel model)
+        {
+            var result = _repository.Update(model);
+            return Ok(result);
+        }
+
+
         /// <summary>
         /// Deletes User Account
         /// </summary>
         /// <param name="id">User Id</param>
-        /// <returns>Boolean value indicating
+        /// <returns>Boolean indicating
         /// account removal success</returns>
         [HttpDelete]
         public IHttpActionResult DeleteUser(int id)
