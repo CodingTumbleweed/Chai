@@ -10,9 +10,11 @@ using Chai.API.Filters;
 using Chai.Models.POCO;
 using Chai.Models.DTO;
 using AutoMapper;
+using Chai.API.Utility;
 
 namespace Chai.API.Controllers
 {
+    [Authorize]
     [ModelValidationFilter]
     public class AccountController : ApiController
     {
@@ -29,6 +31,7 @@ namespace Chai.API.Controllers
         /// </summary>
         /// <param name="model">User model</param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpPost]
         public IHttpActionResult AddUser(AccountModel model)
         {
@@ -46,12 +49,19 @@ namespace Chai.API.Controllers
         /// </summary>
         /// <param name="model">User model</param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet]
         public IHttpActionResult LoginUser([FromUri] AccountModel model)
         {
             var result = _repository.Find(model);
             if (result != null)
-                return Ok(Mapper.Map<AccountModel, AccountDTO>(result));
+            {
+                TokenHelper _tokenHelper = new TokenHelper();
+                var data = Mapper.Map<AccountModel, AccountDTO>(result);
+                var token = _tokenHelper.CreateToken(data);
+                data.Token = token;
+                return Ok(data);
+            }
             else
                 return NotFound();
         }

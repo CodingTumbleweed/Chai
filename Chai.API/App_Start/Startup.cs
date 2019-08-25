@@ -1,4 +1,6 @@
 ﻿using Microsoft.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Jwt;
 using Newtonsoft.Json;
 using Owin;
 using Swashbuckle.Application;
@@ -41,6 +43,20 @@ namespace Chai.API.App_Start
                     c.IncludeXmlComments(xmlDocPath);
                 })
                 .EnableSwaggerUi();
+        }
+
+        public void ConfigureJwt(IAppBuilder app)
+        {
+            app.UseJwtBearerAuthentication(
+               new JwtBearerAuthenticationOptions
+               {
+                   AuthenticationMode = AuthenticationMode.Active,
+                   AllowedAudiences = new[] { JwtConfig.Audience },
+                   IssuerSecurityKeyProviders = new IIssuerSecurityKeyProvider[]
+                   {
+                        new SymmetricKeyIssuerSecurityKeyProvider(JwtConfig.Issuer, JwtConfig.Secret)
+                   }
+               });
         }
     }
 }

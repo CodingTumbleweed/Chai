@@ -17,5 +17,15 @@ namespace Chai.API.Utility
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
+
+        /// <summary>
+        /// Gets AppSetting value from Configuration
+        /// </summary>
+        /// <param name="key">Key for key-value pair</param>
+        /// <returns>AppSetting value given the key</returns>
+        public static string GetAppSettings(string key)
+        {
+            return ConfigurationManager.AppSettings[key].ToString();
+        }
     }
 }

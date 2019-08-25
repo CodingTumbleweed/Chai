@@ -24,5 +24,6 @@ namespace Chai.Models.DTO
         public string Country { get; set; }
         public bool IsActive { get; set; }
         public bool IsUpdated { get; set; }
+        public TokenDTO Token { get; set; }
     }
 }

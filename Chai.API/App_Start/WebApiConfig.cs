@@ -29,7 +29,9 @@ namespace Chai.API
             config.DependencyResolver = new UnityDependencyResolver(container);
 
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
+            config.MessageHandlers.Add(new TokenValidationHandler());
             config.MessageHandlers.Add(new CustomResponseHandler());
+            
 
 
 
