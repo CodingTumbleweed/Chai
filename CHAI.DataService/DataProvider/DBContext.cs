@@ -154,6 +154,34 @@ namespace Chai.DataService.DataProvider
             }
         }
 
+        public static PasswordRecoveryModel InitiatePasswordRecovery(string email)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var result = connection.Query<PasswordRecoveryModel>("usp_Create_PasswordRecovery_General", new { Email = email },
+                    commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                return result;
+            }
+        }
+
+        public static bool ValidatePasswordRecovery(PasswordRecoveryModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@Password", model.Password);
+                p.Add("@RecoveryCode", model.Code);
+
+                var success = connection.Query<bool>("usp_Reset_Password_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
         #endregion
 
 

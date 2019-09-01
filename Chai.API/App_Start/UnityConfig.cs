@@ -22,6 +22,7 @@ namespace Chai.API
             container.RegisterType<IRepository<CountryModel>, CountryRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<GenderModel>, GenderRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<AppConfigModel>, AppConfigRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRepository<PasswordRecoveryModel>, PasswordRepository>(new ContainerControlledLifetimeManager());
 
             return container;
         }

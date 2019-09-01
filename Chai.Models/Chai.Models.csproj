@@ -50,6 +50,7 @@
     <Compile Include="POCO\CityModel.cs" />
     <Compile Include="POCO\CountryModel.cs" />
     <Compile Include="POCO\GenderModel.cs" />
+    <Compile Include="POCO\PasswordRecoveryModel.cs" />
     <Compile Include="POCO\StateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource\DefaultValueStore.Designer.cs">

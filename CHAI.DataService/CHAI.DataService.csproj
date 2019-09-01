@@ -55,6 +55,7 @@
     <Compile Include="Repository\CityRepository.cs" />
     <Compile Include="Repository\CountryRepository.cs" />
     <Compile Include="Repository\GenderRepository.cs" />
+    <Compile Include="Repository\PasswordRepository.cs" />
     <Compile Include="Repository\StateRepository.cs" />
   </ItemGroup>
   <ItemGroup>

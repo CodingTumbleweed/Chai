@@ -153,6 +153,7 @@
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
+    <Compile Include="Controllers\PasswordController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="ExceptionHandlers\UnhandledExceptionHandler.cs" />
     <Compile Include="Filters\ModelValidationFilter.cs" />
