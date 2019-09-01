@@ -14,18 +14,14 @@ namespace Chai.API
         public static IUnityContainer RegisterComponents()
         {
 			var container = new UnityContainer();
-
-
-            // Register new controllers here
-            container.RegisterType<AccountController>();
-            container.RegisterType<CityController>();
-
+          
             //Register new IOC mappings here
             container.RegisterType<IRepository<AccountModel>, AccountRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<CityModel>, CityRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<StateModel>, StateRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<CountryModel>, CountryRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IRepository<GenderModel>, GenderRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRepository<AppConfigModel>, AppConfigRepository>(new ContainerControlledLifetimeManager());
 
             return container;
         }

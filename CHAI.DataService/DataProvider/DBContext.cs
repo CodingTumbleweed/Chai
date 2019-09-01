@@ -176,6 +176,26 @@ namespace Chai.DataService.DataProvider
 
         #endregion
 
+
+        #region App Config / Culture
+
+        public static IEnumerable<AppConfigModel> GetAppConfigSettings()
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                IEnumerable<AppConfigModel> result = connection.Query<AppConfigModel>("usp_Get_AppConfigSettings_General",
+                    commandType: CommandType.StoredProcedure).AsEnumerable();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+
+            return null;
+        }
+
+        #endregion
+
         #region Global function
 
         internal static IDbConnection OpenConnection()

@@ -45,6 +45,7 @@
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="POCO\AccountModel.cs" />
+    <Compile Include="POCO\AppConfigModel.cs" />
     <Compile Include="POCO\CityModel.cs" />
     <Compile Include="POCO\CountryModel.cs" />
     <Compile Include="POCO\GenderModel.cs" />
