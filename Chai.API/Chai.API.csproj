@@ -169,6 +169,7 @@
     <Compile Include="Utility\CustomResponseHandler.cs" />
     <Compile Include="Utility\ErrorContentResult.cs" />
     <Compile Include="Utility\Helper.cs" />
+    <Compile Include="Utility\JsonTrimConverter.cs" />
     <Compile Include="Utility\TokenHelper.cs" />
     <Compile Include="Utility\TokenValidationHandler.cs" />
   </ItemGroup>

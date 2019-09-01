@@ -28,7 +28,11 @@ namespace Chai.API
             var container = UnityConfig.RegisterComponents();
             config.DependencyResolver = new UnityDependencyResolver(container);
 
+            //Formatters
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
+            config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new JsonTrimConverter());
+
+            //DelegatingHandlers
             config.MessageHandlers.Add(new TokenValidationHandler());
             config.MessageHandlers.Add(new CustomResponseHandler());
             
