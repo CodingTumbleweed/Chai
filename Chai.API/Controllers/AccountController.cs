@@ -84,13 +84,12 @@ namespace Chai.API.Controllers
         /// <summary>
         /// Deletes User Account
         /// </summary>
-        /// <param name="id">User Id</param>
         /// <returns>Boolean indicating
         /// account removal success</returns>
         [HttpDelete]
-        public IHttpActionResult DeleteUser(int id)
+        public IHttpActionResult DeleteUser(AccountModel model)
         {
-            var result = _repository.Remove(id);
+            var result = _repository.Remove(model);
             return Ok(result);
         }
     }

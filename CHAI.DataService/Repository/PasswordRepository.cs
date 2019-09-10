@@ -13,7 +13,7 @@ namespace Chai.DataService.Repository
     {
         public int Add(PasswordRecoveryModel model)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public PasswordRecoveryModel Find(PasswordRecoveryModel model)
@@ -23,17 +23,17 @@ namespace Chai.DataService.Repository
 
         public IEnumerable<PasswordRecoveryModel> FindById(int id)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public IEnumerable<PasswordRecoveryModel> GetAll()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
-        public bool Remove(int id)
+        public bool Remove(PasswordRecoveryModel model)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public bool Update(PasswordRecoveryModel model)

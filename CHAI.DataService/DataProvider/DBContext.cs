@@ -70,6 +70,7 @@ namespace Chai.DataService.DataProvider
             using (IDbConnection connection = OpenConnection())
             {
                 var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
                 p.Add("@FirstName", model.FirstName);
                 p.Add("@MiddleName", model.MiddleName);
                 p.Add("@LastName", model.LastName);
@@ -84,6 +85,8 @@ namespace Chai.DataService.DataProvider
                 p.Add("@CountryId", model.CountryId);
                 p.Add("@StateId", model.StateId);
                 p.Add("@CityId", model.CityId);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
 
                 var result = connection.Query<AccountModel>("usp_Create_UserAccount_General", p,
                     commandType: CommandType.StoredProcedure).First();
@@ -101,6 +104,7 @@ namespace Chai.DataService.DataProvider
             using (IDbConnection connection = OpenConnection())
             {
                 var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
                 p.Add("@Id", model.Id);
                 p.Add("@FirstName", model.FirstName);
                 p.Add("@MiddleName", model.MiddleName);
@@ -114,6 +118,8 @@ namespace Chai.DataService.DataProvider
                 p.Add("@CountryId", model.CountryId);
                 p.Add("@StateId", model.StateId);
                 p.Add("@CityId", model.CityId);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
 
                 var success = connection.Query<bool>("usp_Update_UserAccount_General", p,
                     commandType: CommandType.StoredProcedure).First();
@@ -142,12 +148,18 @@ namespace Chai.DataService.DataProvider
             return null;
         }
 
-        public static bool DeleteUser(int userId)
+        public static bool DeleteUser(AccountModel model)
         {
             DataSet ds = new DataSet();
             using (IDbConnection connection = OpenConnection())
             {
-                var success = connection.Query<bool>("Usp_Delete_UserAccount_General", new { Id = userId },
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("Usp_Delete_UserAccount_General", p,
                     commandType: CommandType.StoredProcedure).First();
 
                 return success;

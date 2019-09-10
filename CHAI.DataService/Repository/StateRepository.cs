@@ -31,7 +31,7 @@ namespace Chai.DataService.Repository
             throw new NotSupportedException();
         }
 
-        public bool Remove(int id)
+        public bool Remove(StateModel model)
         {
             throw new NotSupportedException();
         }

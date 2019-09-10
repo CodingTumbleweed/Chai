@@ -8,6 +8,7 @@ namespace Chai.Models.POCO
     public class AccountModel : IEntity
     {
         public int Id { get; set; }
+        public int CultureId { get; set; }
         [MaxLength(15, ErrorMessage = "Max 15 Alphabets Allowed")]
         [RegularExpression("[A-Za-z]+", ErrorMessage = "Provided Name is not valid")]
         public string FirstName { get; set; }
@@ -35,6 +36,8 @@ namespace Chai.Models.POCO
         public string Country { get; set; }
         public bool IsActive { get; set; }
         public bool IsUpdated { get; set; }
+        public int Code { get; set; }
+        public string Message { get; set; }
 
         private int _cityId;
         public int CityId

@@ -30,8 +30,8 @@ namespace Chai.DataService.Repository
         {
             return DBContext.GetAppConfigSettings();
         }
-
-        public bool Remove(int id)
+        
+        public bool Remove(AppConfigModel model)
         {
             throw new NotSupportedException();
         }
