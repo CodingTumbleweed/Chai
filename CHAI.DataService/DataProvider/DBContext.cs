@@ -224,6 +224,370 @@ namespace Chai.DataService.DataProvider
 
         #endregion
 
+        #region Agency / Agency Status
+
+        public static int AddAgency(AgencyModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@AgencyCode", model.AgencyCode);
+                p.Add("@Name", model.Name);
+                p.Add("@AgencyStatusId", model.AgencyStatusId);
+                p.Add("@AgencyBalance", model.AgencyBalance);
+                p.Add("@BalancePaymentMethodId", model.BalancePaymentMethodId);
+                p.Add("@Address", model.Address);
+                p.Add("@Email", model.Email);
+                p.Add("@Phone", model.Phone);
+                p.Add("@Mobile", model.Mobile);
+                p.Add("@CountryId", model.CountryId);
+                p.Add("@StateId", model.StateId);
+                p.Add("@CityId", model.CityId);
+                p.Add("@Zip", model.Zip);
+                p.Add("@BankAccountId", model.BankAccountId);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AccountModel>("usp_Create_Agency_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                if (result != null)
+                    return result.Id;
+            }
+
+            return 0;
+        }
+
+        public static bool UpdateAgency(AgencyModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@AgencyCode", model.AgencyCode);
+                p.Add("@Name", model.Name);
+                p.Add("@AgencyStatusId", model.AgencyStatusId);
+                p.Add("@AgencyBalance", model.AgencyBalance);
+                p.Add("@BalancePaymentMethodId", model.BalancePaymentMethodId);
+                p.Add("@Address", model.Address);
+                p.Add("@Email", model.Email);
+                p.Add("@Phone", model.Phone);
+                p.Add("@Mobile", model.Mobile);
+                p.Add("@CountryId", model.CountryId);
+                p.Add("@StateId", model.StateId);
+                p.Add("@CityId", model.CityId);
+                p.Add("@Zip", model.Zip);
+                p.Add("@BankAccountId", model.BankAccountId);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Update_Agency_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static bool DeleteAgency(AgencyModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Delete_Agency_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static IEnumerable<AgencyModel> GetAgency(AgencyModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AgencyModel>("usp_GetAgency_General", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+            return null;
+        }
+
+        public static int AddAgencyStatus(AgencyStatusModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@Description", model.Description);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AccountModel>("usp_Create_AgencyStatus_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                if (result != null)
+                    return result.Id;
+            }
+
+            return 0;
+        }
+
+        public static bool UpdateAgencyStatus(AgencyStatusModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Description", model.Description);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Update_AgencyStatus_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static bool DeleteAgencyStatus(AgencyStatusModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Delete_AgencyStatus_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static IEnumerable<AgencyStatusModel> GetAgencyStatus(AgencyStatusModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AgencyStatusModel>("usp_GetAgencyStatus_General", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+            return null;
+        }
+
+        #endregion
+
+
+        #region Bank / Payment Methods
+
+        public static int AddBank(BankModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@BankCode", model.BankCode);
+                p.Add("@Name", model.Name);
+                p.Add("@Address", model.Address);
+                p.Add("@Phone", model.Phone);
+                p.Add("@Fax", model.Fax);
+                p.Add("@IBAN", model.IBAN);
+                p.Add("@SwiftCode", model.SwiftCode);
+                p.Add("@RoutingNumber", model.RoutingNumber);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AccountModel>("usp_Create_Bank_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                if (result != null)
+                    return result.Id;
+            }
+
+            return 0;
+        }
+
+        public static bool UpdateBank(BankModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@BankCode", model.BankCode);
+                p.Add("@Name", model.Name);
+                p.Add("@Address", model.Address);
+                p.Add("@Phone", model.Phone);
+                p.Add("@Fax", model.Fax);
+                p.Add("@IBAN", model.IBAN);
+                p.Add("@SwiftCode", model.SwiftCode);
+                p.Add("@RoutingNumber", model.RoutingNumber);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Update_Bank_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static bool DeleteBank(BankModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Delete_Bank_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static IEnumerable<BankModel> GetBank(BankModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<BankModel>("usp_GetBank_General", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+            return null;
+        }
+
+        public static int AddPaymentMethod(PaymentMethodModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@Name", model.Name);
+                p.Add("@Description", model.Description);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<AccountModel>("usp_Create_PaymentMethod_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                if (result != null)
+                    return result.Id;
+            }
+
+            return 0;
+        }
+
+        public static bool UpdatePaymentMethod(PaymentMethodModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Name", model.Name);
+                p.Add("@Description", model.Description);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Update_PaymentMethod_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static bool DeletePaymentMethod(PaymentMethodModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var success = connection.Query<bool>("usp_Delete_PaymentMethod_General", p,
+                    commandType: CommandType.StoredProcedure).First();
+
+                return success;
+            }
+        }
+
+        public static IEnumerable<PaymentMethodModel> GetPaymentMethod(PaymentMethodModel model)
+        {
+            DataSet ds = new DataSet();
+            using (IDbConnection connection = OpenConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@CultureId", model.CultureId);
+                p.Add("@id", model.Id);
+                p.Add("@Code", model.Code, DbType.Int32, ParameterDirection.Output);
+                p.Add("@Message", model.Message, DbType.String, ParameterDirection.Output);
+
+                var result = connection.Query<PaymentMethodModel>("usp_Delete_PaymentMethod_General", p,
+                    commandType: CommandType.StoredProcedure).ToList();
+
+                if (result != null && result.Count() > 0)
+                    return result;
+            }
+            return null;
+        }
+
+        #endregion
+
+
         #region Global function
 
         internal static IDbConnection OpenConnection()
