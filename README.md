@@ -2,4 +2,4 @@
 
 Remittance Made Easy!
 
-Let's fill this up as we go forward
+This is a bootstrap project for building a remittance system.
